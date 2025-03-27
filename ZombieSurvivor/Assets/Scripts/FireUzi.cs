@@ -6,6 +6,9 @@ public class FireUzi : MonoBehaviour
 {
     public Transform firePoint;
 
+    public ParticleSystem fireFx;
+    public ParticleSystem shellFx;
+
     public float fireCoolTime = 0.1f;
     public float fireRange = 10f;
     private float lastFireTime = 0f;
@@ -26,6 +29,9 @@ public class FireUzi : MonoBehaviour
         {
             if (lastFireTime + fireCoolTime < Time.time)
             {
+                fireFx.Play();
+                shellFx.Play();
+
                 lastFireTime = Time.time;
                 StartCoroutine(Fire());
             }
