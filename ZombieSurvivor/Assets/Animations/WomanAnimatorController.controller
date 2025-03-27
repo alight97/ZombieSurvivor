@@ -101,13 +101,13 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Upper Layer
     m_StateMachine: {fileID: -2509073483743915355}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 06043f5e91326074ebebf86edcadb1b2, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 1
-    m_IKPass: 0
+    m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!206 &4145380034933663987
