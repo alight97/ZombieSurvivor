@@ -6,20 +6,27 @@ public class MoveWoman : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
     public float rotateSpeed = 200.0f;
+    public HealthSlider healthSlider;
 
     private Rigidbody rb;
     private Animator animator;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = gameObject.GetComponent<Animator>();
+
+        healthSlider.OnDieAction += OnDie;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead == true)
+            return;
+
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
         Vector3 dir = new Vector3(h, 0, v);
@@ -40,5 +47,14 @@ public class MoveWoman : MonoBehaviour
         rb.MovePosition(transform.position + movement);
 
         animator.SetFloat("Move", dir.z);
+    }
+
+    private void OnDie()
+    {
+        if (isDead == false)
+        {
+            isDead = true;
+            animator.SetTrigger("Die");
+        }
     }
 }
